@@ -1,0 +1,22 @@
+.dropdown-menu li a:hover {
+    color: #FFFFFF;
+}
+.dropdown-menu li a {
+    color: #FFFFFF;
+    margin-bottom: 0px;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+    text-align: left;
+    width: 10em;
+}
+.dropdown-menu li a.btn-danger:hover {
+    background-color: #D2322D;
+}
+.dropdown-menu li a.btn-success:hover {
+    background-color: #47A347;
+}
+.dropdown-menu {
+    background: none;
+    margin-top: 0;
+    visibility: hidden;
+}
