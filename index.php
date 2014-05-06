@@ -29,7 +29,26 @@ session_start();
 		<!-- sound visualization -->
 		<script type="text/javascript" src="js/visualization.js"></script>
 
+<?php
+		$effects = array();
+		$dir = opendir('js/visualization');
+		while (false !== ($file = readdir($dir))) {
+			if (is_javascript($file)) { // load the javascritp visualization effect
+				$effects[] = str_replace('.js','',$file);
+				echo '<script type="text/javascript" src="js/visualization/'.$file.'"></script>'."\n";
+			}
+		}
+		closedir($dir);
+?>
+
 <script type="text/javascript">
+
+<?php
+$tmp = array();
+foreach ($effects as $effect)
+	$tmp[] = "'$effect'";
+echo "var visualization_effects = [".join(',',$tmp)."];";
+?>
 
 $(document).ready(function(){
 	// display last played songs by default
@@ -76,6 +95,7 @@ $(document).ready(function(){
 		<i id="save_playlist_in_database" class="fa fa-save fa-lg" title="Save play list"></i>
 		<i id="erase_playlist" class="fa fa-eraser fa-lg" title="Erase play list"></i>
 		<canvas id="visualization">you're browser doesn't support canvas</canvas>
+		<i id="change_visualization" class="fa fa-bar-chart-o fa-lg" title="Change visualization"></i>
 	</div>
 	
 	<!-- play list -->

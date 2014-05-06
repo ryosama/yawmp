@@ -16,6 +16,12 @@ function is_mp3($filename) {
 }
 
 
+// check if file has an ".js" extension
+function is_javascript($filename) {
+	return preg_match('/\.js$/i', $filename) ;
+}
+
+
 // check if file has an .jpeg, .jpg, .png, .gif extension
 function is_image($filename) {
 	return preg_match('/\.(?:jpe?g|gif|png)$/i',$filename) ;

@@ -1,5 +1,12 @@
 #visualization {
-	width:200;
-	height:32;
-	border:solid 1px grey;
+    border: 1px solid #808080;
+    height: 32px;
+    width: 200px;
+    float: right;
+}
+#change_visualization {
+    float: right;
+    margin-top: 10px;
+    margin-right: 5px;
+    cursor:pointer;
 }
