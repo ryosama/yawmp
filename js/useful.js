@@ -3,7 +3,7 @@ function play_song(path,add_playlist,obj) {
 
 	//console.log(path);
 	//autoplay="autoplay"
-	html = '<audio id="audio-element" controls="controls">'+
+	html = '<audio id="audio-element" controls="controls" autoplay="autoplay">'+
 				'<source src="'+path.replace(/%/,'%25')+'"/>'+
 				'<p class="warning">Your browser can\'t play mp3 files</p>'+
 			'</audio>';
@@ -48,7 +48,7 @@ function play_song(path,add_playlist,obj) {
 	popup("Now playing<div class='song_title'>"+basename(path)+"</div>");
 
 	// display animation
-	display_visulization();
+	display_visulization(); // in visualization.js
 
 	// display the cover, infos and lyrics
 	display_info_cover_lyrics(path);
