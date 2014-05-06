@@ -2,10 +2,11 @@ function play_song(path,add_playlist,obj) {
 	var player = $('#player');
 
 	//console.log(path);
-	
-	html = '<audio id="audio-element" controls="controls" autoplay="autoplay"><source src="'+
-			path.replace(/%/,'%25')+
-			'"/><p class="warning">Your browser can\'t play mp3 files</p></audio>';
+	//autoplay="autoplay"
+	html = '<audio id="audio-element" controls="controls">'+
+				'<source src="'+path.replace(/%/,'%25')+'"/>'+
+				'<p class="warning">Your browser can\'t play mp3 files</p>'+
+			'</audio>';
 	$('#player').html(html); // build new audio tag
 
 	// record the song datetime play in database
@@ -45,6 +46,9 @@ function play_song(path,add_playlist,obj) {
 
 	// display a message
 	popup("Now playing<div class='song_title'>"+basename(path)+"</div>");
+
+	// display animation
+	display_visulization();
 
 	// display the cover, infos and lyrics
 	display_info_cover_lyrics(path);

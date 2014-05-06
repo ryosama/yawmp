@@ -260,7 +260,7 @@ elseif (isset($_GET['what']) && $_GET['what']=='display_stats') {
 
 	} else { // check the last version
 		$uptodate_version 	= @join('',@file('https://raw.githubusercontent.com/ryosama/yawmp/master/VERSION'));
-		$message_version	= $local_version < $uptodate_version ? '<i class="fa fa-exclamation-triangle"></i> A new version is available on https://github.com/ryosama/yawmp/' : '<i class="fa fa-check"></i> You\'re uptodate' ;	
+		$message_version	= $local_version < $uptodate_version ? '<i class="fa fa-exclamation-triangle"></i> A new version is available on <a href="https://github.com/ryosama/yawmp/" target="_blank">Github/YAWMP</a>' : '<i class="fa fa-check"></i> You\'re up to date' ;	
 	}
 
 	$total_song 		= get_value_from_sql($sqlite,"SELECT count(*) FROM song");

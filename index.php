@@ -15,6 +15,7 @@ session_start();
 		<link rel="stylesheet" type="text/css" href="css/sortable.css">
 		<link rel="stylesheet" type="text/css" href="css/dropdown-menu.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="css/visualization.css">
 
 		<script type="text/javascript" src="js/jquery.js"></script>
 		<script type="text/javascript" src="js/jquery-sortable-min.js"></script>
@@ -24,6 +25,9 @@ session_start();
 		<!-- fotorama -->
 		<link rel="stylesheet" type="text/css" href="css/fotorama.css" >
 		<script type="text/javascript" src="js/fotorama.js"></script>
+
+		<!-- sound visualization -->
+		<script type="text/javascript" src="js/visualization.js"></script>
 
 <script type="text/javascript">
 
@@ -71,6 +75,7 @@ $(document).ready(function(){
 		<label for="repeat" title="Repeat play list"><i class="fa fa-repeat fa-lg"></i> Repeat</label> <input type="checkbox" name="repeat" id="repeat"/>
 		<i id="save_playlist_in_database" class="fa fa-save fa-lg" title="Save play list"></i>
 		<i id="erase_playlist" class="fa fa-eraser fa-lg" title="Erase play list"></i>
+		<canvas id="visualization">you're browser doesn't support canvas</canvas>
 	</div>
 	
 	<!-- play list -->
