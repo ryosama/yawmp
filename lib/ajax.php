@@ -255,8 +255,13 @@ elseif (isset($_GET['what']) && $_GET['what']=='display_stats') {
 	$sqlite = open_database();
 
 	$local_version 		= trim(join('',@file('../VERSION')));
-	$uptodate_version 	= @join('',@file('https://raw.githubusercontent.com/ryosama/yawmp/master/VERSION'));
-	$message_version	= $local_version < $uptodate_version ? '<i class="fa fa-exclamation-triangle"></i> A new version is available on https://github.com/ryosama/yawmp/' : '<i class="fa fa-check"></i> You\'re uptodate' ;
+	if (!extension_loaded('openssl')) { // can't check online last version
+    	$message_version = '<i class="fa fa-exclamation-triangle"></i> To check the last available version, you should enable openssl extension in PHP configuration';
+
+	} else { // check the last version
+		$uptodate_version 	= @join('',@file('https://raw.githubusercontent.com/ryosama/yawmp/master/VERSION'));
+		$message_version	= $local_version < $uptodate_version ? '<i class="fa fa-exclamation-triangle"></i> A new version is available on https://github.com/ryosama/yawmp/' : '<i class="fa fa-check"></i> You\'re uptodate' ;	
+	}
 
 	$total_song 		= get_value_from_sql($sqlite,"SELECT count(*) FROM song");
 	$total_time_song	= get_value_from_sql($sqlite,"SELECT sum(song_length) FROM song");
