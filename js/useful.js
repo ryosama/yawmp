@@ -51,6 +51,7 @@ function play_song(path,add_playlist,obj) {
 }
 
 
+
 // add a song to play list
 function add_to_playlist(path,obj,dont_dispay_message,dont_save) {
 	_add_to_playlist(	path,

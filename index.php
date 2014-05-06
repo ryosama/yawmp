@@ -94,6 +94,8 @@ $(document).ready(function(){
 	<div id="lyrics"></div>
 </div>
 
+<!-- box for search engine -->
 <div id="search_help"></div>
+
 </body>
 </html>

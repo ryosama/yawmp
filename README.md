@@ -14,6 +14,7 @@ Browser compatibility
 Technology
 ==========
 - Full ajax
+- JQuery
 - Bootstrap
 - Fontawesome (no images in the application)
 - PHP
@@ -24,6 +25,7 @@ Install
 =======
 - Install a Web server
 - Install a PHP environnement
+- Enable openssl extension on PHP (only needed for version checking)
 - Copy the project files to your "www/choose_a_name" web directory
 - Create some alias in your web server for your songs.
 	Your songs should be stream by your web browser.

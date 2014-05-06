@@ -1,7 +1,5 @@
 <?php
 
-define('VERSION','1.0');
-
 if (file_exists('../config/config.php'))
 	include_once('../config/config.php');
 

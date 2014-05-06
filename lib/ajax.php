@@ -253,6 +253,11 @@ EOT;
 elseif (isset($_GET['what']) && $_GET['what']=='display_stats') {
 	$user_escape = sql_escape_string($_SESSION['user']);
 	$sqlite = open_database();
+
+	$local_version 		= trim(join('',@file('../VERSION')));
+	$uptodate_version 	= @join('',@file('https://raw.githubusercontent.com/ryosama/yawmp/master/VERSION'));
+	$message_version	= $local_version < $uptodate_version ? '<i class="fa fa-exclamation-triangle"></i> A new version is available on https://github.com/ryosama/yawmp/' : '<i class="fa fa-check"></i> You\'re uptodate' ;
+
 	$total_song 		= get_value_from_sql($sqlite,"SELECT count(*) FROM song");
 	$total_time_song	= get_value_from_sql($sqlite,"SELECT sum(song_length) FROM song");
 	$total_size_song	= get_value_from_sql($sqlite,"SELECT sum(song_filesize) FROM song");
@@ -264,7 +269,7 @@ elseif (isset($_GET['what']) && $_GET['what']=='display_stats') {
 	$most_listened_song = get_value_from_sql($sqlite,"SELECT song_title,artist_name FROM last_played LEFT JOIN song on last_played_fullpath=song_fullpath LEFT JOIN artist on song_artist_id=artist.rowid WHERE last_played_username='$user_escape' ORDER BY last_played_times DESC, last_played_datetime DESC LIMIT 0,1");
 	$last_listened_song = get_value_from_sql($sqlite,"SELECT song_title,artist_name FROM last_played LEFT JOIN song on last_played_fullpath=song_fullpath LEFT JOIN artist on song_artist_id=artist.rowid WHERE last_played_username='$user_escape' ORDER BY last_played_datetime DESC LIMIT 0,1");
 
-	echo 	"<tr class='stats'><td class='stats_label'>Application version</td><td class='stats_value'>".VERSION."</td></tr>".
+	echo 	"<tr class='stats'><td class='stats_label'>Application version</td><td class='stats_value'>r$local_version ($message_version)</td></tr>".
 			"<tr class='stats'><td class='stats_label'>User</td><td class='stats_value'>$_SESSION[user]</td></tr>".
 		 	"<tr class='stats'><td class='stats_label'>Number of songs</td><td class='stats_value'>$total_song</td></tr>".
 			"<tr class='stats'><td class='stats_label'>Total time of listen</td><td class='stats_value'>".human_readable_time($total_time_song)."</td></tr>".
