@@ -3,8 +3,15 @@
     height: 32px;
     width: 200px;
     float: right;
+    z-index:10
 }
-#change_visualization {
+
+#visualization_btn {
+	float:right;
+	width:70px;
+}
+
+#change_visualization, #toogle_fullscreen_visualization {
     float: right;
     margin-top: 10px;
     margin-right: 5px;

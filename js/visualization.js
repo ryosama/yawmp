@@ -1,9 +1,14 @@
 // some global variables
 var canvas,canvas_ctx,audio_ctx,audio,audioSrc,analyser,frequencyData;
 var selected_visualization = 1; // second one by default
+var initial_visualiaztion_width, initial_visualiaztion_height;
 
 $(document).ready(function(){ // on document ready, load events
 
+	initial_visualiaztion_width = $('#visualization').css('width');
+	initial_visualiaztion_height = $('#visualization').css('height');
+
+	// click on change visualizaion effect
 	$('body').delegate('#change_visualization','click',function(){
 		if (selected_visualization >= visualization_effects.length -1 ) // last one
 			selected_visualization = 0;
@@ -12,12 +17,40 @@ $(document).ready(function(){ // on document ready, load events
 
 		initVisualization();
 	});
+
+
+	// click on fullscreen visualizaion effect
+	$('body').delegate('#toogle_fullscreen_visualization','click',function(){
+		toogle_fullscreen_visualization();
+	});
+
 });
+
+
+function toogle_fullscreen_visualization() {
+
+	if ($('#visualization').css('position') == 'static') { // go fullscreen
+		$('#visualization').css({	'width':$(document).width(),
+									'height':$(document).height() - 40,
+									'background-color':'black',
+									'position':'fixed',
+									'top':0,
+									'left':0
+								});
+
+	} else {												// reduce animation to initial size
+		$('#visualization').css({	'width':initial_visualiaztion_width,
+									'height':initial_visualiaztion_height,
+									'background':'none',
+									'position':'static',
+								});
+	}
+}
 
 
 
 function display_visulization() {
-	canvas 			= document.getElementById('visualization');
+	canvas 			= $('#visualization').get(0);
 	canvas_ctx 		= canvas.getContext('2d');
 
 	audio_ctx = window.AudioContext 		? new window.AudioContext() :
@@ -27,7 +60,7 @@ function display_visulization() {
            		window.msAudioContext 		? new window.msAudioContext() :
            		undefined;
     
-	audio 		= document.getElementById('audio-element');
+	audio 		= $('#audio-element').get(0);
 	audioSrc 	= audio_ctx.createMediaElementSource(audio);
 	analyser 	= audio_ctx.createAnalyser();
 

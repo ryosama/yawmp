@@ -35,6 +35,10 @@ th { white-space: nowrap; }
     width: 100%;
 }
 
+#player {
+    width:310px;
+}
+
 #playlist_title, #repeat, #save_playlist_in_database, #erase_playlist {
     margin-right: 10px;
 }

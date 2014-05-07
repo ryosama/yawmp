@@ -1,7 +1,7 @@
 var bar_width;
 function init_spectrum() {
 	// we could configure the analyser: e.g. analyser.fftSize (for further infos read the spec)
-	analyser.fftSize = 64;
+	analyser.fftSize = 128;
 	// frequencyBinCount tells you how many values you'll receive from the analyser
 	frequencyData = new Uint8Array(analyser.frequencyBinCount);
 

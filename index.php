@@ -94,15 +94,22 @@ $(document).ready(function(){
 		<label for="repeat" title="Repeat play list"><i class="fa fa-repeat fa-lg"></i> Repeat</label> <input type="checkbox" name="repeat" id="repeat"/>
 		<i id="save_playlist_in_database" class="fa fa-save fa-lg" title="Save play list"></i>
 		<i id="erase_playlist" class="fa fa-eraser fa-lg" title="Erase play list"></i>
+
+		<!-- visualization -->
 		<canvas id="visualization">you're browser doesn't support canvas</canvas>
-		<i id="change_visualization" class="fa fa-bar-chart-o fa-lg" title="Change visualization"></i>
 	</div>
 	
 	<!-- play list -->
 	<ol id="playlist" class="sortable"></ol>
 
+	<!-- visualization buttons -->
+	<div id="visualization_btn">
+		<i id="change_visualization" class="fa fa-bar-chart-o fa-lg" title="Change visualization"></i>
+		<i id="toogle_fullscreen_visualization" class="fa fa-desktop fa-lg" title="Toogle Fullscreen"></i>
+	</div>
+
 	<!-- player -->
-	<div id="player"><audio id="audio-element"></audio></div>	
+	<div id="player"><audio id="audio-element"></audio></div>
 </div>
 
 <!-- list of song -->
