@@ -27,7 +27,7 @@ foreach (unserialize(SONGS_PATHS) as $path => $values) {
 	$objects = new RecursiveIteratorIterator(new RecursiveDirectoryIterator(realpath($path)),RecursiveIteratorIterator::SELF_FIRST);
 
 	foreach($objects as $name => $object){
-	    if(is_mp3($object->getFilename())) {
+	    if(is_audio($object->getFilename())) {
 
 	    	// test if Pathname is not in the filter --> skip
 	    	if (isset($arguments['filter']) &&  stripos($object->getPathname(),$arguments['filter']) === false)

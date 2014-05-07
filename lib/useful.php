@@ -10,9 +10,9 @@ function is_command_line_interface() {
     return php_sapi_name() === 'cli';
 }
 
-// check if file has an ".mp3" extension
-function is_mp3($filename) {
-	return preg_match('/\.mp3$/i', $filename) ;
+// check if file has an ".mp3" or ".ogg" extension
+function is_audio($filename) {
+	return preg_match('/\.(?:mp3|ogg)$/i', $filename) ;
 }
 
 

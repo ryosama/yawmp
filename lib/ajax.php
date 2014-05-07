@@ -62,7 +62,7 @@ if (isset($_GET['what']) && $_GET['what']=='ls' && isset($_GET['dir'])) {
 		while (false !== ($file = readdir($dir))) {
 			if ($file == '.') continue;
 
-			if (is_mp3($file)) {
+			if (is_audio($file)) {
 				$files[] = 	'<tr class="song" path="'.convert_local_path_to_virtual_path("$directory/$file").'" title="'.basename_without_extension($file).'" author="">'.						
 								'<td class="icon"><i class="fa fa-play fa-lg" title="Play the song"></i></td>'.
 								'<td class="icon"><i class="fa fa-plus fa-lg" title="Add to play list"></i></td>'.
