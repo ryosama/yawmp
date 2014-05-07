@@ -1,3 +1,4 @@
+var bar_width;
 function init_spectrum() {
 	// we could configure the analyser: e.g. analyser.fftSize (for further infos read the spec)
 	analyser.fftSize = 64;

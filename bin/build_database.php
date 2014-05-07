@@ -20,7 +20,6 @@ $arguments = getopt('f::l::h',array('filter::','label::','help'));
 
 $update_mode = isset($arguments['filter']) || isset($arguments['label']) ? true : false;
 
-
 if ($update_mode) {
     if (isset($arguments['filter']))    // a filter is specifie erase only the found songs
 	   echo "Index filter : $arguments[filter]\n";
@@ -31,12 +30,12 @@ if ($update_mode) {
 } else {
 	// no filter specifie --> erase all the data
 	echo "Erase database\n";
-	erase_data($sqlite);
+    if ($sqlite)
+	   erase_data($sqlite);
 }
 
 
-
-create_database('',$sqlite);
+$sqlite = create_database($sqlite);
 
 foreach (unserialize(SONGS_PATHS) as $path => $values) {
 	$objects = new RecursiveIteratorIterator(new RecursiveDirectoryIterator(realpath($path)),RecursiveIteratorIterator::SELF_FIRST);

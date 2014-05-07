@@ -11,8 +11,15 @@ Browser compatibility
 - Chrome
 - Android browser
 
+Audio codec compatibility
+=====================
+- MP3
+- OGG
+- more to come...
+
 Technology
 ==========
+- HTML5
 - Full ajax
 - JQuery
 - Bootstrap
@@ -43,8 +50,8 @@ Install
 
 		In my browser now I can view my songs in http://myserver/songs/
 
-- Launch your browser and go to http://myserver/choose_a_name/
+- Launch your browser and go to http://myserver/yawmp/
 - Follow the Wizard install instructions
 - Go to "www/choose_a_name/bin" and launch "build_database.php"
 - Your songs will be index (can take a while)
-- Your ready to listen music at http://myserver/choose_a_name/
+- Your ready to listen music at http://myserver/yawmp/

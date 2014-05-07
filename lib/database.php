@@ -129,9 +129,9 @@ function erase_song_by_fullpath($sqlite,$fullpath) {
 // erase table with no remanent information
 function erase_data($sqlite) {
   // do NOT inverse order !!!
-  $sqlite->query("DROP TABLE [artist];") ;
+  $sqlite->query("DROP TABLE [artist];");
   $sqlite->query("DROP TABLE [album];");
-  $sqlite->query("DROP TABLE [song];") ;
+  $sqlite->query("DROP TABLE [song];");
 }
 
 // create a session with a uniq id in database
@@ -203,9 +203,13 @@ function delete_playlist($sqlite,$playlist_name) {
 }
 
 
-function create_database($database,$sqlite = null) {
+function create_database($sqlite = null) {
   if (!$sqlite) {
-    mkdir(dirname($database), 0777, true) or die("Could not create path to the database '".dirname($database)."'");
+    $database = '../'.DATABASE;
+    
+    if (!is_dir(dirname($database)))
+      mkdir(dirname($database), 0777, true) or die("Could not create path to the database '".dirname($database)."'");
+
     $sqlite = new PDO('sqlite:'.$database); // success
     if (!$sqlite)
       die("Could not create database '$database'");

@@ -1,6 +1,5 @@
 // some global variables
-var canvas,bar_width,canvas_ctx,audio_ctx,audio,audioSrc,analyser,channels,frequencyData;
-
+var canvas,canvas_ctx,audio_ctx,audio,audioSrc,analyser,frequencyData;
 var selected_visualization = 1; // second one by default
 
 $(document).ready(function(){ // on document ready, load events
@@ -31,7 +30,6 @@ function display_visulization() {
 	audio 		= document.getElementById('audio-element');
 	audioSrc 	= audio_ctx.createMediaElementSource(audio);
 	analyser 	= audio_ctx.createAnalyser();
-	channels 	= audio_ctx.createChannelSplitter();
 
 	/*
 	console.log("audioSrc="+audioSrc);
@@ -67,6 +65,5 @@ function renderVisualization() {
 
 	if (audio.paused) return; // if paused, don't do nothing
 
-	//console.log('renderVisualization');
 	eval('render_'+visualization_effects[selected_visualization]+'()');
 }
