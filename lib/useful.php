@@ -10,7 +10,7 @@ function is_command_line_interface() {
     return php_sapi_name() === 'cli';
 }
 
-// check if file has an ".mp3" or ".ogg" extension
+// check if file has an .mp3, .ogg extension (flac is not support yet by browser)
 function is_audio($filename) {
 	return preg_match('/\.(?:mp3|ogg)$/i', $filename) ;
 }
