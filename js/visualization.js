@@ -1,12 +1,12 @@
 // some global variables
 var canvas,canvas_ctx,audio_ctx,audio,audioSrc,analyser,frequencyData;
 var selected_visualization = 1; // second one by default
-var initial_visualiaztion_width, initial_visualiaztion_height;
+var initial_visualization_width, initial_visualization_height;
 
 $(document).ready(function(){ // on document ready, load events
 
-	initial_visualiaztion_width = $('#visualization').css('width');
-	initial_visualiaztion_height = $('#visualization').css('height');
+	initial_visualization_width = $('#visualization').css('width');
+	initial_visualization_height = $('#visualization').css('height');
 
 	// click on change visualizaion effect
 	$('body').delegate('#change_visualization','click',function(){
@@ -39,8 +39,8 @@ function toogle_fullscreen_visualization() {
 								});
 
 	} else {												// reduce animation to initial size
-		$('#visualization').css({	'width':initial_visualiaztion_width,
-									'height':initial_visualiaztion_height,
+		$('#visualization').css({	'width':initial_visualization_width,
+									'height':initial_visualization_height,
 									'background':'none',
 									'position':'static',
 								});

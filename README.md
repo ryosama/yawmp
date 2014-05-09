@@ -24,7 +24,7 @@ Technology
 - JQuery
 - Bootstrap
 - Fontawesome (no images in the application)
-- PHP
+- PHP5
 - PHP lib "getid3"
 - SQLite
 
@@ -46,6 +46,7 @@ Install
 		        AllowOverride None
 	        	Order allow,deny
 		        Allow from all
+		        Require all granted
 		</Directory>
 
 		In my browser now I can view my songs in http://myserver/songs/
