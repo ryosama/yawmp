@@ -1,12 +1,14 @@
 // some global variables
-var canvas,canvas_ctx,audio_ctx,audio,audioSrc,analyser,frequencyData;
+var canvas,canvas_ctx;
+var my_audio;
 var selected_visualization = 1; // second one by default
 var initial_visualization_width, initial_visualization_height;
 
-$(document).ready(function(){ // on document ready, load events
 
-	initial_visualization_width = $('#visualization').css('width');
-	initial_visualization_height = $('#visualization').css('height');
+if (is_firefox())// only work for firefox
+$(document).ready(function() { // on document ready, load events
+	initial_visualization_width 	= $('#visualization').css('width');
+	initial_visualization_height 	= $('#visualization').css('height');
 
 	// click on change visualizaion effect
 	$('body').delegate('#change_visualization','click',function(){
@@ -23,7 +25,6 @@ $(document).ready(function(){ // on document ready, load events
 	$('body').delegate('#toogle_fullscreen_visualization','click',function(){
 		toogle_fullscreen_visualization();
 	});
-
 });
 
 
@@ -48,36 +49,12 @@ function toogle_fullscreen_visualization() {
 }
 
 
-
 function display_visulization() {
 	canvas 			= $('#visualization').get(0);
 	canvas_ctx 		= canvas.getContext('2d');
 
-	audio_ctx = window.AudioContext 		? new window.AudioContext() :
-           		window.webkitAudioContext 	? new window.webkitAudioContext() :
-           		window.mozAudioContext 		? new window.mozAudioContext() :
-           		window.oAudioContext 		? new window.oAudioContext() :
-           		window.msAudioContext 		? new window.msAudioContext() :
-           		undefined;
-    
-	audio 		= $('#audio-element').get(0);
-	audioSrc 	= audio_ctx.createMediaElementSource(audio);
-	analyser 	= audio_ctx.createAnalyser();
-
-	/*
-	console.log("audioSrc="+audioSrc);
-	console.log("channelCount="+audioSrc.channelCount);
-	console.log("channelInterpretation="+audioSrc.channelInterpretation);
-	*/
-
-	// we have to connect the MediaElementSource with the analyser
-	audioSrc.connect(analyser);
-
-	// we connect the source to the destination (mp3 to speaker)
-	audioSrc.connect(audio_ctx.destination);
-
-	// we're ready to receive some data!
-	audio.play();
+	my_audio = new SimpleAudio( $('#audio-element').get(0) ); // create context, connection, splitter, analysers from audio tag
+	my_audio.element.play();
 
 	// load visualization
 	initVisualization();
@@ -96,7 +73,7 @@ function renderVisualization() {
 	else 												//chrome
 		webkitRequestAnimationFrame(renderVisualization);
 
-	if (audio.paused) return; // if paused, don't do nothing
+	if (my_audio.element.paused) return; // if paused, don't do nothing
 
 	eval('render_'+visualization_effects[selected_visualization]+'()');
 }

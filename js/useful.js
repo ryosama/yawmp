@@ -47,11 +47,12 @@ function play_song(path,add_playlist,obj) {
 	// display a message
 	popup("Now playing<div class='song_title'>"+basename(path)+"</div>");
 
-	// display animation
-	display_visulization(); // in visualization.js
-
 	// display the cover, infos and lyrics
 	display_info_cover_lyrics(path);
+
+	// display animation
+	if (is_firefox()) // only work for firefox.mozilla) // work only on firefox for the moment
+		display_visulization(); // in visualization.js
 }
 
 
@@ -679,4 +680,10 @@ function search_help(input_obj) {
 			}
 		}
 	});
+}
+
+
+
+function is_firefox() {
+	return navigator.userAgent.indexOf('Firefox') != -1;
 }

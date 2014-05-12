@@ -27,6 +27,7 @@ session_start();
 		<script type="text/javascript" src="js/fotorama.js"></script>
 
 		<!-- sound visualization -->
+		<script type="text/javascript" src="js/simple_audio.js"></script>
 		<script type="text/javascript" src="js/visualization.js"></script>
 
 <?php
