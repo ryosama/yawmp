@@ -1,7 +1,5 @@
 #visualization {
     border: 1px solid #808080;
-    height: 32px;
-    width: 200px;
     float: right;
     z-index:10
 }

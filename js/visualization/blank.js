@@ -1,5 +1,5 @@
 function init_blank() {
-	canvas_ctx.clearRect(0,0, canvas.width, canvas.height);
+	my_canvas.clearCanvas();
 }
 
 function render_blank() {

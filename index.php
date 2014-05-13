@@ -10,6 +10,8 @@ session_start();
 	<head>
 		<title><?=TITLE?></title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+		<!-- CSS -->
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="css/sortable.css">
@@ -17,16 +19,18 @@ session_start();
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="stylesheet" type="text/css" href="css/visualization.css">
 
+		<!-- JQuery and plugins -->
 		<script type="text/javascript" src="js/jquery.js"></script>
 		<script type="text/javascript" src="js/jquery-sortable-min.js"></script>
 		<script type="text/javascript" src="js/useful.js"></script>
 		<script type="text/javascript" src="js/events.js"></script>
 
-		<!-- fotorama -->
+		<!-- Fotorama -->
 		<link rel="stylesheet" type="text/css" href="css/fotorama.css" >
 		<script type="text/javascript" src="js/fotorama.js"></script>
 
-		<!-- sound visualization -->
+		<!-- Sound visualization -->
+		<script type="text/javascript" src="js/simple_canvas.js"></script>
 		<script type="text/javascript" src="js/simple_audio.js"></script>
 		<script type="text/javascript" src="js/visualization.js"></script>
 
@@ -97,7 +101,7 @@ $(document).ready(function(){
 		<i id="erase_playlist" class="fa fa-eraser fa-lg" title="Erase play list"></i>
 
 		<!-- visualization -->
-		<canvas id="visualization">you're browser doesn't support canvas</canvas>
+		<canvas id="visualization" width="200" height="32">You're browser doesn't support canvas</canvas>
 	</div>
 	
 	<!-- play list -->

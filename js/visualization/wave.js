@@ -1,26 +1,28 @@
 function init_wave() {
 	// we could configure the analyser: e.g. analyser.fftSize (for further infos read the spec)
 	my_audio.analysers[0].fftSize = 512;
-
-	
 }
 
 function render_wave() {
-	// update data
-	my_audio.refreshData();
 
-	canvas_ctx.clearRect(0,0, canvas.width, canvas.height);
+	if (my_canvas.frame >> 1) {
 
-	if (my_audio.volumes[0] > 80)
-		canvas_ctx.strokeStyle	= 'red';
-	else
-		canvas_ctx.strokeStyle	= 'white';
+		// update data
+		my_audio.refreshData();
 
-	canvas_ctx.beginPath();
-	canvas_ctx.moveTo(0, canvas.height / 2);
-	for (var i=0; i<my_audio.waves[0].length ; i++) { 
-		var dot_height = (my_audio.waves[0][i] * canvas.height) / 255;
-		canvas_ctx.lineTo(canvas.width / my_audio.analysers[0].frequencyBinCount * i, dot_height);
-    }
-    canvas_ctx.stroke();
+		my_canvas.clearCanvas();
+
+		if (my_audio.volumes[0] > 80)
+			my_canvas.context.strokeStyle	= 'red';
+		else
+			my_canvas.context.strokeStyle	= 'white';
+
+		my_canvas.context.beginPath();
+		my_canvas.context.moveTo(0, my_canvas.element.height / 2);
+		for (var i=0; i<my_audio.waves[0].length ; i++) { 
+			var dot_height = (my_audio.waves[0][i] * my_canvas.element.height) / 255;
+			my_canvas.context.lineTo(my_canvas.element.width / my_audio.analysers[0].frequencyBinCount * i, dot_height);
+	    }
+	    my_canvas.context.stroke();
+	}
 }
