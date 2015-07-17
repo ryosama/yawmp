@@ -83,14 +83,17 @@ function get_invert_last_order() {
 
 // screen for authentification
 function display_auth() {
-	$html = "<caption>Authentification</caption>";
-	$html .= "<tr class='authentification'><td>".
-				"<div id='auth_user' class='input-group margin-bottom-sm'><span class='input-group-addon'><i class='fa fa-user fa-fw'></i></span><input id='input_user' class='form-control' type='text' placeholder='User'>
-				</div>".
-				"<div id='auth_password' class='input-group'><span class='input-group-addon'><i class='fa fa-key fa-fw'></i></span><input id='input_password' class='form-control' type='password' placeholder='Password'></div>".
-				"<div>You can create a new user if the username don't exists</div>".
-			"</td></tr>";
-	$html .= "<tr><td><a id='auth_btn' class='btn btn-success btn-sm' href='#'><i class='fa fa-sign-in fa-lg'></i> Login or create</a></td></tr>";
+	$html = <<<EOT
+		<caption>Authentification</caption>
+			<tr class='authentification'><td>
+				<div id='auth_user' class='input-group margin-bottom-sm'><span class='input-group-addon'><i class='fa fa-user fa-fw'></i></span><input id='input_user' class='form-control' type='text' placeholder='User'>
+				</div>
+				<div id='auth_password' class='input-group'><span class='input-group-addon'><i class='fa fa-key fa-fw'></i></span><input id='input_password' class='form-control' type='password' placeholder='Password'></div>
+				<div>You can create a new user if the username don't exists</div>
+			</td></tr>
+			<tr><td><a id='auth_btn' class='btn btn-success btn-sm' href='#'><i class='fa fa-sign-in fa-lg'></i> Login or create</a></td></tr>
+			<script language="javascript"'>hide_search();</script>
+EOT;
 	echo $html;
 }
 

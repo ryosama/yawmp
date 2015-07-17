@@ -547,7 +547,8 @@ function login() {
 				} else if (result == 2) { // existing user
 					popup("Welcome "+user);
 				}
-				
+
+				show_search();
 				display_last_played();
 				return success;
 			}
@@ -630,9 +631,17 @@ function hide_dropdown_menu() {
 	$('#actions_btn').next('.dropdown-menu').css('visibility','hidden');
 }
 
-// 
+
+function show_search() {
+	$('#search').css('visibility','visible');
+}
+
+function hide_search() {
+	$('#search').css('visibility','hidden');
+}
+
+
 function search_help(input_obj) {
-	//console.log($(input_obj).val());
 	var text = $(input_obj).val();
 	$.ajax({
 		url:'lib/ajax.php',
