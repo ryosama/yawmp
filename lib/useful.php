@@ -65,6 +65,13 @@ function login() {
 }
 
 
+// change style of UI
+function affect_style($style) {
+	if (isset($_SESSION))
+		$_SESSION['style'] = $style;
+}
+
+
 // erase useless '.' or '..' in a file path
 function normalize_path($path) {
     $out=array();

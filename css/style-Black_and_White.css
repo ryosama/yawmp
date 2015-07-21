@@ -1,0 +1,241 @@
+body {
+	background-color: black;
+	color: white;
+	margin: 3px 5px;
+}
+audio {
+	border: 1px solid grey;
+	margin: 0 0 5px 5px;
+}
+label {
+	font-weight: normal;
+}
+th {
+	white-space: nowrap;
+}
+
+#choose-style {
+	float: right;
+	width: 200px;
+	text-align:right;
+}
+
+#search_btn, #browse_file_btn, #last_play_btn, #most_played_btn, #stats_btn, #favorite_btn, #password_btn, #logout_btn {
+	margin-right: 3px;
+}
+#player_and_playlist {
+	background: black none repeat scroll 0 0;
+	border: 1px solid white;
+	border-radius: 5px;
+	bottom: 0;
+	position: fixed;
+	right: 0;
+	width: 500px;
+}
+#playlist {
+	bottom: 10px;
+	list-style-position: inside;
+	max-height: 20em;
+	overflow-y: auto;
+	padding: 5px;
+	width: 100%;
+}
+#player {
+	width: 310px;
+}
+#playlist_title, #repeat, #save_playlist_in_database, #erase_playlist {
+	margin-right: 10px;
+}
+#playlist li span {
+	cursor: pointer;
+}
+#playlist .artist {
+	color: grey;
+	font-style: italic;
+}
+.song {
+}
+.dir {
+	color: white;
+}
+#title {
+	float: left;
+	width: 150px;
+}
+#search {
+	width: 100%;
+}
+.fa-music, .fa-play, .fa-plus, .fa-sort-alpha-asc, .fa-sort-numeric-asc, .fa-star-o, .fa-star, .fa-download {
+	margin-right: 3px;
+}
+.fa-download {
+	color: white;
+}
+input[type="text"], input[type="password"], select {
+	background-color: black;
+	border: 2px solid grey;
+}
+#song_list {
+	background-color: black;
+	border-collapse: collapse;
+	border-color: white;
+	border-style: solid;
+	border-width: 5px 1px;
+	cursor: pointer;
+	margin-bottom: 170px;
+	width: 100%;
+}
+#song_list td, #song_list th {
+	border-right: 1px solid white;
+	padding: 1px 0 1px 5px;
+}
+#song_list thead tr {
+	background-color: black;
+	border-bottom: 1px solid white;
+}
+#song_list tr:nth-child(2n) {
+	background-color: black;
+}
+#song_list .icon {
+	border-right: medium none;
+}
+.icon {
+	width: 16px;
+}
+#message {
+	background-color: black;
+	border: 2px solid white;
+	border-radius: 10px;
+	bottom: 120px;
+	display: none;
+	left: 5px;
+	padding: 5px;
+	position: fixed;
+	width: 400px;
+	z-index: 99;
+}
+#message .song_title {
+	font-style: italic;
+}
+#message .fa {
+	float: left;
+	margin-right: 5px;
+}
+.track, .year, .length {
+	width: 5em;
+}
+.active {
+	color: white;
+	font-size: 1.2em;
+	font-weight: bold;
+	margin: 0 5px 5px;
+}
+.fa-play, .fa-eraser, .fa-add, .fa-repeat, .fa-save, label[for="repeat"], .fa-arrow-down, .fa-arrow-up {
+	cursor: pointer;
+}
+#playlist .fa-eraser, #playlist .fa-arrow-up, #playlist .fa-arrow-down {
+	float: right;
+}
+#result_per_page {
+	float: right;
+}
+#result_range {
+	float: left;
+}
+#song_info_cover_lyrics {
+	background-color: black;
+	border: 2px solid white;
+	border-radius: 5px;
+	bottom: 0;
+	font-size: 0.9em;
+	left: 0;
+	max-height: 165px;
+	overflow: auto;
+	position: fixed;
+	width: 400px;
+}
+#song_info div {
+	width: 100%;
+}
+#song_info {
+	float: right;
+	width: 190px;
+}
+#song_info .artist {
+	color: grey;
+}
+#song_list_action a {
+	margin: 5px 5px 5px 0;
+}
+#song_list_action {
+	border-top: 1px solid white;
+	color: grey;
+	font-size: 0.8em;
+}
+#lyrics {
+	clear: both;
+	margin-left: 5px;
+	margin-top: 5px;
+	white-space: pre;
+}
+#cover {
+	float: left;
+	width: 150px;
+}
+.stats_label, .password_label {
+	width: 12em;
+}
+.btn-success i {
+	color: white;
+}
+#ariane i {
+	color: white;
+}
+#auth_user {
+	padding: 5px 5px 0;
+	width: 15em;
+}
+#input_user, #input_password {
+	color: white;
+}
+#auth_password {
+	padding: 0 5px 5px;
+	width: 15em;
+}
+.input-group-addon {
+	background-color: black;
+	color: white;
+}
+#search_help {
+	background-color: black;
+	border: 2px solid white;
+	cursor: pointer;
+	display: none;
+	font-size: 0.9em;
+	left: 0;
+	padding: 5px;
+	position: fixed;
+	top: 0;
+	width: 40%;
+}
+#search_help div {
+	color: white;
+}
+#search_help ul {
+	list-style: outside none none;
+	margin: 0;
+	padding-left: 1em;
+}
+#search_help .found {
+	background-color: white;
+}
+.btn-success, .btn-danger {
+	background-color: grey;
+	border-color: white;
+	color: white;
+}
+.btn-success:hover, .btn-success:focus, .btn-danger:hover, .dropdown-menu li a.btn-success:hover, .dropdown-menu li a.btn-danger:hover {
+	background-color: black;
+	border-color: white;
+	color: white;
+}
