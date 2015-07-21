@@ -25,7 +25,6 @@ function open_database(){
       die ($exception->getMessage());
     }
   }
-
   return $sqlite;
 }
 
@@ -257,13 +256,12 @@ EOT;
 	$sqlite->query($sql) or die("Unable to create table song in database ".DATABASE.'. '.join('\n',$sqlite->errorInfo()));
 
 
-
 //////////////////////////////////////////// TABLE user //////////////////////////////////////////////////////////////
 $sql = <<<EOT
 CREATE TABLE IF NOT EXISTS [user] (
   [user_name] CHAR NOT NULL, 
   [user_salt] CHAR NOT NULL, 
-  [user_password] CHAR NOT NULL, 
+  [user_password] CHAR NOT NULL,
   CONSTRAINT [] PRIMARY KEY ([user_name]));
 EOT;
   $sqlite->query($sql) or die("Unable to create table user in database ".DATABASE.'. '.join('\n',$sqlite->errorInfo()));
@@ -291,18 +289,6 @@ CREATE TABLE IF NOT EXISTS [favorite] (
   CONSTRAINT [sqlite_autoindex_favorite_1] PRIMARY KEY ([favorite_fullpath], [favorite_username]));
 EOT;
   $sqlite->query($sql) or die("Unable to create table favorite in database ".DATABASE.'. '.join('\n',$sqlite->errorInfo()));
-
-
-//////////////////////////////////////////// TABLE favortite //////////////////////////////////////////////////////////////
-$sql = <<<EOT
-CREATE TABLE IF NOT EXISTS [user] (
-  [user_name] CHAR NOT NULL, 
-  [user_salt] CHAR NOT NULL, 
-  [user_password] CHAR NOT NULL, 
-  CONSTRAINT [] PRIMARY KEY ([user_name]));
-EOT;
-  $sqlite->query($sql) or die("Unable to create table favorite in database ".DATABASE.'. '.join('\n',$sqlite->errorInfo()));
-
 
 
 //////////////////////////////////////////// TABLE session //////////////////////////////////////////////////////////////

@@ -9,15 +9,17 @@ session_start();
 <html>
 	<head>
 		<title><?=TITLE?></title>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
 		<!-- CSS -->
-		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-		<link rel="stylesheet" type="text/css" href="css/sortable.css">
-		<link rel="stylesheet" type="text/css" href="css/dropdown-menu.css">
-		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<link rel="stylesheet" type="text/css" href="css/visualization.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/sortable.css"/>
+		<link rel="stylesheet" type="text/css" href="css/dropdown-menu.css"/>
+
+		<link href="<?= isset($_SESSION['style']) && strlen($_SESSION['style'])>0 ? $_SESSION['style']:'css/style-Classic.css' ?>" rel="stylesheet" type="text/css" />
+
+		<link rel="stylesheet" type="text/css" href="css/visualization.css"/>
 
 		<!-- JQuery and plugins -->
 		<script type="text/javascript" src="js/jquery.js"></script>
@@ -26,7 +28,7 @@ session_start();
 		<script type="text/javascript" src="js/events.js"></script>
 
 		<!-- Fotorama -->
-		<link rel="stylesheet" type="text/css" href="css/fotorama.css" >
+		<link rel="stylesheet" type="text/css" href="css/fotorama.css"/>
 		<script type="text/javascript" src="js/fotorama.js"></script>
 
 		<!-- Sound visualization -->
@@ -67,6 +69,27 @@ $(document).ready(function(){
 <body>
 <div id="header">
 	<div id="title"><?=TITLE?></div>
+	<div id="choose-style">Style
+		<select name="choose-style-select" id="choose-style-select">
+			<? foreach (glob('css/style-*.css') as $stylesheet) { // load different graphic style
+				preg_match('/^css\/style-(.+)\\.css$/i',$stylesheet,$regs);
+				$stylesheet_title = str_replace('_', ' ', $regs[1]);
+			?>
+				<option value="<?=$stylesheet?>"<?
+					if (isset($_SESSION['style'])) {
+						if ($_SESSION['style']==$stylesheet)
+							echo ' selected="selected"';
+					} else {
+						if ($stylesheet == 'css/style-Classic.css')
+							echo ' selected="selected"';				
+					}	
+					?>>
+					<?=$stylesheet_title?>
+				</option>
+			<? } ?>
+		</select>
+	</div>
+
 	<div id="search">
 		<input type="text" id="search_text" name="search_text" value="" placeholder="search..." autocomplete="off"/>
 		<select id="search_where" name="search_where">
