@@ -183,4 +183,11 @@ $(document).ready(function(){ // on document ready, load events
 		search_text(); // launch the final search
 	});
 
+
+	// choose new style
+	$('body').delegate('#choose-style-select','change',function(){
+		console.log("je suis dans l'event de #choose-style-select");
+		change_style($(this).val());		
+	});
+
 });
