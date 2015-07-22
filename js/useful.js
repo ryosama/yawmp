@@ -693,7 +693,6 @@ function search_help(input_obj) {
 
 
 function change_style(new_style) {
-	console.log("je suis dans le useful de change_style");
 	$.ajax({
 		url:'lib/ajax.php',
 		async:false,
@@ -701,7 +700,6 @@ function change_style(new_style) {
 		type:'GET',
 		dataType :'text',
 		success:function(text) {
-			console.log("je reload");
 			window.location.reload(); // reload page to get the new UI
 		}
 	});
